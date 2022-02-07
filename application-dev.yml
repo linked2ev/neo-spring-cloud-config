@@ -36,4 +36,4 @@ mybatis:
   
 const:
   profile: dev
-  test-key: 1111
+  test-key: 2222
