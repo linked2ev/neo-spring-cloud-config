@@ -1,0 +1,39 @@
+server:
+  port: 8090
+  
+spring:
+  #profiles: prod
+  config:
+    activate:
+      on-profile: user-dev
+
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      allow-pool-suspesion: true
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/demo_neo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      username: root
+      password: 1111
+
+  thymeleaf:
+    cache: false
+
+  resources:
+    cache:
+      period: 0
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    hibernate:
+      use-new-id-generator-mappings: false
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+const:
+  profile: user-dev
+  test-key: user-dev-1111
